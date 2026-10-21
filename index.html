@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>প্রিয় অ্যাডস নেটওয়ার্ক – Priyo Ads Network</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#f4f6f1;--card:#fff;--ink:#16221d;--mute:#5b6b63;--line:#dfe5dd;--brand:#0b6b4f;--brandInk:#fff;--bk:#e2136e;--ng:#e8800c;--ok:#0b7a43;--warn:#9a6200;--bad:#b3261e;--info:#1c5fa8;box-sizing:border-box}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1713;--card:#17211c;--ink:#e8efe9;--mute:#9db0a5;--line:#2a3830;--brand:#2fae86;--brandInk:#06150f;--ok:#4cc98a;--warn:#e7b04a;--bad:#ff8a80;--info:#7db4ee}}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Hind Siliguri",system-ui,sans-serif;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:980px;margin:0 auto;padding:0 14px 40px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0}
+.logo{font-weight:700;font-size:1.25rem;letter-spacing:.2px}.logo small{display:block;font-weight:400;font-size:.78rem;color:var(--mute)}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;border-bottom:1px solid var(--line);margin-bottom:16px}
+nav button{white-space:nowrap;border:0;background:none;color:var(--mute);font:inherit;font-weight:600;padding:10px 14px;border-bottom:3px solid transparent;cursor:pointer}
+nav button[aria-selected=true]{color:var(--brand);border-bottom-color:var(--brand)}
+.banner{background:#fff3d6;color:#5c3d00;border:1px solid #ecc766;border-radius:10px;padding:10px 14px;margin-bottom:14px;font-weight:500}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+h2{margin:0 0 12px;font-size:1.15rem}h3{margin:0 0 6px;font-size:1rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:720px){.stats{grid-template-columns:repeat(4,1fr)}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat span{display:block;color:var(--mute);font-size:.85rem}.stat b{font-size:1.35rem}
+.stat.main{border-color:var(--brand);border-width:2px}
+label{display:block;font-weight:600;margin:12px 0 4px}label small{font-weight:400;color:var(--mute)}
+input[type=text],input[type=number],input[type=password],input[type=tel],textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font:inherit}
+input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--info);outline-offset:2px}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.methods input{position:absolute;opacity:0}
+.methods label{margin:0;border:2px solid var(--line);border-radius:10px;padding:12px;text-align:center;cursor:pointer;font-weight:700}
+.methods input:checked+label{background:var(--c);border-color:var(--c);color:#fff}
+.methods input:focus-visible+label{outline:3px solid var(--info);outline-offset:2px}
+.btn{display:inline-block;border:0;border-radius:9px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--brand);color:var(--brandInk)}
+.btn.sec{background:none;border:1px solid var(--line);color:var(--ink)}.btn.bad{background:var(--bad);color:#fff}.btn.sm{padding:7px 12px;font-size:.9rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}.full{width:100%;margin-top:16px}
+.err{color:var(--bad);font-weight:500;min-height:1.3em;margin-top:8px}.okmsg{color:var(--ok);font-weight:500}
+.badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.82rem;font-weight:700;border:1px solid currentColor}
+.s-pending{color:var(--warn)}.s-approved{color:var(--info)}.s-paid{color:var(--ok)}.s-rejected{color:var(--bad)}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:12px 0;border-top:1px solid var(--line)}.row:first-child{border-top:0}
+.row .meta{color:var(--mute);font-size:.85rem;word-break:break-all}
+.amt{font-weight:700;white-space:nowrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chips button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;padding:5px 12px;font:inherit;cursor:pointer}.chips button[aria-pressed=true]{background:var(--brand);color:var(--brandInk);border-color:var(--brand)}
+.empty{color:var(--mute);padding:18px 0;text-align:center}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);padding:18px;width:min(92vw,420px)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+.bar{height:8px;border-radius:9px;background:var(--line);overflow:hidden;margin:14px 0}.bar i{display:block;height:100%;width:0;background:var(--brand);transition:width 1s linear}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(50px,1fr));gap:6px}
+.box{aspect-ratio:1;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--mute);background:var(--card)}
+.box.done{background:var(--ok);border-color:var(--ok);color:var(--brandInk);font-weight:700}
+.box.next{border:2px solid var(--brand);color:var(--brand);font-weight:700}
+#prog{font-weight:600;margin:0 0 8px}
+.trust{background:var(--ok);color:var(--brandInk);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-weight:700;text-align:center}
+.hide{display:none!important}
+@media(prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">প্রিয় অ্যাডস নেটওয়ার্ক<small>Priyo Ads Network</small></div>
+  <button class="btn sec sm hide" id="logoutBtn">লগআউট</button>
+</header>
+<div class="banner hide" id="demoBanner">ডেমো মোড: ব্যাকএন্ড সংযুক্ত নেই। এখানে কোনো আসল আয়, উত্তোলন বা পেমেন্ট কাজ করছে না। সব ব্যালেন্স ৳০ দেখানো হচ্ছে।</div>
+
+<section id="authView" class="card hide" style="max-width:420px;margin:0 auto">
+  <h2 id="authTitle">লগইন / Login</h2>
+  <label for="aId">মোবাইল নম্বর বা ইমেইল</label><input type="text" id="aId" autocomplete="username">
+  <label for="aPw">পাসওয়ার্ড <small>(কমপক্ষে ৮ অক্ষর)</small></label><input type="password" id="aPw" autocomplete="current-password">
+  <div class="err" id="aErr" role="alert"></div>
+  <button class="btn full" id="aGo">লগইন করুন</button>
+  <button class="btn sec full" id="aSwitch" type="button">নতুন অ্যাকাউন্ট খুলুন</button>
+</section>
+
+<main id="appView" class="hide">
+<div class="trust hide" id="trust" role="status">বিজ্ঞাপনদাতা ১০০% পেমেন্ট করছেন</div>
+<nav role="tablist" id="tabs">
+  <button role="tab" data-t="ads" aria-selected="true">বিজ্ঞাপন / Ads</button>
+  <button role="tab" data-t="wallet" aria-selected="false">ওয়ালেট / Wallet</button>
+  <button role="tab" data-t="hist" aria-selected="false">উত্তোলনের ইতিহাস</button>
+  <button role="tab" data-t="admin" aria-selected="false" class="hide" id="adminTab">অ্যাডমিন / Admin</button>
+</nav>
+
+<div class="stats" id="stats">
+  <div class="stat main"><span>উত্তোলনযোগ্য ব্যালেন্স<br>Available</span><b id="vAvail">৳০</b></div>
+  <div class="stat"><span>মোট যাচাইকৃত আয়<br>Verified earnings</span><b id="vVer">৳০</b></div>
+  <div class="stat"><span>পেমেন্ট অপেক্ষমাণ<br>Pending withdrawal</span><b id="vPend">৳০</b></div>
+  <div class="stat"><span>মোট উত্তোলন<br>Total withdrawn</span><b id="vWd">৳০</b></div>
+</div>
+<br>
+
+<section data-p="ads">
+  <div class="card"><h2>বিজ্ঞাপন দেখুন</h2>
+  <p class="meta" style="color:var(--mute);margin-top:0">শর্ত: প্রতিটি বিজ্ঞাপনে ১০ সেকেন্ড অপেক্ষা করতে হবে। সময় পূর্ণ হলে সার্ভার যাচাই করে আয় যোগ করে। যাচাই না হওয়া পর্যন্ত আয় উত্তোলনযোগ্য হবে না।</p>
+  <p id="prog"></p><button class="btn full" id="nextAd" style="margin:0 0 14px">পরের বিজ্ঞাপন দেখুন</button><div class="grid" id="adList"></div></div>
+</section>
+
+<section data-p="wallet" class="hide">
+  <div class="card"><h2>উত্তোলন করুন</h2>
+  <p style="margin:0;color:var(--mute)">সর্বনিম্ন উত্তোলন ৳৫০০ · পেমেন্ট অ্যাডমিন নিজে পাঠায়, তাই সময় লাগতে পারে।</p>
+  <form id="wdForm" novalidate>
+    <label for="wAmt">পরিমাণ (৳) <small>Amount, min 500</small></label>
+    <input type="number" id="wAmt" inputmode="numeric" min="500" step="1">
+    <label>পেমেন্ট পদ্ধতি <small>Method</small></label>
+    <div class="methods">
+      <div><input type="radio" name="m" id="mB" value="bkash" checked><label for="mB" style="--c:var(--bk)">বিকাশ</label></div>
+      <div><input type="radio" name="m" id="mN" value="nagad"><label for="mN" style="--c:var(--ng)">নগদ</label></div>
+    </div>
+    <label for="wNum">মোবাইল ওয়ালেট নম্বর <small>Wallet number (01XXXXXXXXX)</small></label>
+    <input type="tel" id="wNum" inputmode="numeric" maxlength="11" placeholder="01XXXXXXXXX">
+    <label for="wName">অ্যাকাউন্ট হোল্ডারের নাম <small>(ঐচ্ছিক / optional)</small></label>
+    <input type="text" id="wName" maxlength="80">
+    <div class="err" id="wErr" role="alert"></div>
+    <button class="btn full" id="wGo" type="submit">উত্তোলন করুন</button>
+  </form></div>
+</section>
+
+<section data-p="hist" class="hide">
+  <div class="card"><h2>উত্তোলনের ইতিহাস / লেনদেন</h2><div id="txList"></div></div>
+</section>
+
+<section data-p="admin" class="hide">
+  <div class="card"><h2>উত্তোলনের আবেদন (অ্যাডমিন)</h2>
+  <div class="chips" id="chips"></div><div id="adminList"></div></div>
+</section>
+</main>
+</div>
+
+<dialog id="dlg"><h3 id="dT"></h3><p id="dB" style="margin:6px 0"></p>
+  <div id="dExtra" class="hide">
+    <label for="dRef" id="dRefL">ট্রানজেকশন রেফারেন্স <small>(বিকাশ/নগদ TrxID)</small></label><input type="text" id="dRef" maxlength="60">
+    <label for="dNote">অ্যাডমিন নোট <small>(ঐচ্ছিক)</small></label><textarea id="dNote" rows="2" maxlength="300"></textarea>
+  </div>
+  <div class="err" id="dErr" role="alert"></div>
+  <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn sec" id="dNo" type="button">বাতিল</button><button class="btn" id="dYes" type="button">নিশ্চিত করুন</button></div>
+</dialog>
+
+<script>
+// ব্যাকএন্ডের ঠিকানা এখানে দিন, যেমন "https://api.yoursite.com". খালি থাকলে পেজ ডেমো মোডে চলবে।
+const API_BASE = location.origin;
+const LIVE = API_BASE !== "";
+const MIN = 500;
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const bn = n => "৳" + Number(n || 0).toLocaleString("bn-BD", {maximumFractionDigits: 2});
+const dt = s => s ? new Date(s).toLocaleString("bn-BD") : "";
+const STATUS = {pending: "পেমেন্ট অপেক্ষমাণ", approved: "অনুমোদিত", paid: "পেমেন্ট সম্পন্ন", rejected: "বাতিল"};
+const METHOD = {bkash: "বিকাশ", nagad: "নগদ"};
+let me = null, wallet = {verified: 0, available: 0, pending: 0, withdrawn: 0, tx: []}, ads = [], daily = {done: 0, limit: 500, reward: 0.5}, adTimer, watching = false, filter = "all", reg = false, wdKey = crypto.randomUUID();
+
+async function api(p, o = {}) {
+  if (!LIVE) throw new Error("ডেমো মোড: ব্যাকএন্ড সংযুক্ত নেই।");
+  let r;
+  try { r = await fetch(API_BASE + p, {credentials: "include", headers: {"Content-Type": "application/json"}, ...o}); }
+  catch (e) { throw new Error("সার্ভারে সংযোগ হয়নি। ইন্টারনেট দেখে আবার চেষ্টা করুন।"); }
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.message || "সমস্যা হয়েছে, আবার চেষ্টা করুন।");
+  return d;
+}
+function el(tag, cls, txt) { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+function badge(s) { return el("span", "badge s-" + s, STATUS[s] || s); }
+
+// ---- ট্যাব ----
+function tab(t) {
+  $$("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.t === t));
+  $$("[data-p]").forEach(s => s.classList.toggle("hide", s.dataset.p !== t));
+  $("#stats").parentElement; if (t === "admin") loadAdmin();
+}
+$("#tabs").onclick = e => { if (e.target.dataset.t) tab(e.target.dataset.t); };
+
+// ---- ডায়ালগ ----
+function ask({title, body, extra, refRequired, danger}) {
+  return new Promise(res => {
+    $("#dT").textContent = title; $("#dB").textContent = body; $("#dErr").textContent = "";
+    $("#dExtra").classList.toggle("hide", !extra); $("#dRef").value = ""; $("#dNote").value = "";
+    $("#dRefL").classList.toggle("hide", !refRequired); $("#dRef").classList.toggle("hide", !refRequired);
+    $("#dYes").className = "btn" + (danger ? " bad" : ""); $("#dNo").textContent = "বাতিল";
+    const d = $("#dlg"); d.showModal();
+    $("#dNo").onclick = () => { d.close(); res(null); };
+    $("#dYes").onclick = () => {
+      if (refRequired && !$("#dRef").value.trim()) { $("#dErr").textContent = "পেমেন্ট সম্পন্ন করার পর ট্রানজেকশন রেফারেন্স লিখুন।"; return; }
+      d.close(); res({ref: $("#dRef").value.trim(), note: $("#dNote").value.trim()});
+    };
+  });
+}
+
+// ---- ডেটা ----
+function renderWallet() {
+  $("#vAvail").textContent = bn(wallet.available); $("#vVer").textContent = bn(wallet.verified);
+  $("#vPend").textContent = bn(wallet.pending); $("#vWd").textContent = bn(wallet.withdrawn);
+  const L = $("#txList"); L.replaceChildren();
+  if (!wallet.tx.length) { L.append(el("div", "empty", "এখনো কোনো লেনদেন নেই।")); }
+  wallet.tx.forEach(t => {
+    const r = el("div", "row"), l = el("div"), rt = el("div");
+    l.append(el("b", null, (t.type === "withdrawal" ? "উত্তোলন · " + (METHOD[t.method] || "") : "বিজ্ঞাপনের আয়")));
+    l.append(el("div", "meta", t.txn_id + " · " + dt(t.created_at) + (t.reference ? " · রেফ: " + t.reference : "")));
+    rt.style.textAlign = "right"; rt.append(el("div", "amt", bn(t.amount)));
+    if (t.status) rt.append(badge(t.status));
+    r.append(l, rt); L.append(r);
+  });
+  const A = $("#adList"), D = daily.done, N = daily.limit; A.replaceChildren();
+  $("#prog").textContent = "এই ২৪ ঘণ্টায় দেখা হয়েছে " + D.toLocaleString("bn-BD") + " / " + N.toLocaleString("bn-BD") + " · প্রতিটি বিজ্ঞাপনে " + bn(daily.reward) + (daily.resets && D > 0 ? " · নতুন করে শুরু: " + dt(daily.resets) : "");
+  $("#nextAd").disabled = !LIVE || D >= N;
+  $("#nextAd").textContent = D >= N ? "সীমা শেষ। ২৪ ঘণ্টা পর আবার শুরু করুন" : "পরের বিজ্ঞাপন দেখুন";
+  const f = document.createDocumentFragment();
+  for (let i = 1; i <= N; i++) {
+    const bx = el("div", "box" + (i <= D ? " done" : i === D + 1 ? " next" : ""), i <= D ? "✓" : i.toLocaleString("bn-BD"));
+    bx.setAttribute("aria-label", "বিজ্ঞাপন " + i + (i <= D ? " সম্পন্ন" : ""));
+    if (i === D + 1 && LIVE) bx.onclick = () => watch();
+    f.append(bx);
+  }
+  A.append(f);
+}
+async function refresh() {
+  if (!LIVE) { renderWallet(); return; }
+  let d; [wallet, d] = await Promise.all([api("/api/wallet"), api("/api/ads/today")]);
+  daily = {done: d.done || 0, limit: d.limit || 500, reward: d.reward ?? 0.5, resets: d.resets_at};
+  $("#trust").classList.toggle("hide", d.advertiser_paid_percent !== 100); renderWallet();
+}
+
+// ---- বিজ্ঞাপন দেখা: বিজ্ঞাপন বাছাই, সময়, দৈনিক সীমা ও আয় সব সার্ভারে ----
+$("#dlg").addEventListener("close", () => { clearInterval(adTimer); watching = false; });
+$("#nextAd").onclick = () => watch();
+async function watch() {
+  if (watching || daily.done >= daily.limit) return;
+  let s;
+  try { s = await api("/api/ads/start", {method: "POST"}); } catch (e) { alert(e.message); return; }
+  watching = true;
+  const d = $("#dlg"), secs = Math.max(10, s.seconds || 10); let left = secs;
+  $("#dT").textContent = s.title || "বিজ্ঞাপন"; $("#dExtra").classList.add("hide"); $("#dErr").textContent = "";
+  $("#dYes").className = "btn hide"; $("#dNo").textContent = "বন্ধ করুন";
+  const bar = el("div", "bar"); bar.append(el("i"));
+  const kids = [el("span", null, "বিজ্ঞাপনে " + secs.toLocaleString("bn-BD") + " সেকেন্ড অপেক্ষা করতে হবে। ট্যাব বদলালে সময় থেমে যাবে। সময় শেষ হলে আয় নিজে থেকেই যোগ হবে।"), bar];
+  if (/^https:\/\//.test(s.link || "")) { const a = el("a", null, "বিজ্ঞাপনটি খুলুন"); a.href = s.link; a.target = "_blank"; a.rel = "noopener noreferrer"; kids.push(el("div"), a); }
+  $("#dB").replaceChildren(...kids); d.showModal();
+  adTimer = setInterval(async () => {
+    if (document.hidden) return;
+    left--; bar.firstChild.style.width = ((secs - left) / secs * 100) + "%";
+    if (left > 0) return;
+    clearInterval(adTimer);
+    try { await api("/api/ads/complete", {method: "POST", body: JSON.stringify({token: s.token})}); d.close(); await refresh(); }
+    catch (e) { $("#dErr").textContent = e.message; }
+  }, 1000);
+}
+
+// ---- উত্তোলন ফর্ম ----
+$("#wdForm").onsubmit = async e => {
+  e.preventDefault();
+  const err = $("#wErr"), amt = Number($("#wAmt").value), m = document.querySelector("[name=m]:checked").value, num = $("#wNum").value.trim(), nm = $("#wName").value.trim();
+  err.textContent = "";
+  if (!Number.isInteger(amt) || amt < MIN) return err.textContent = "সর্বনিম্ন উত্তোলন ৳৫০০। পূর্ণ সংখ্যায় লিখুন।";
+  if (amt > wallet.available) return err.textContent = "আপনার উত্তোলনযোগ্য ব্যালেন্স " + bn(wallet.available) + "। এর বেশি উত্তোলন করা যাবে না।";
+  if (!/^01[3-9]\d{8}$/.test(num)) return err.textContent = "সঠিক ১১ ডিজিটের নম্বর দিন, যেমন 01XXXXXXXXX।";
+  const ok = await ask({title: "উত্তোলনের আবেদন নিশ্চিত করুন", body: bn(amt) + " · " + METHOD[m] + " · " + num + "। আবেদনের পর এই টাকা আটকে থাকবে এবং অ্যাডমিন যাচাই করে ম্যানুয়ালি পাঠাবেন।"});
+  if (!ok) return;
+  const b = $("#wGo"); b.disabled = true;
+  try {
+    const r = await api("/api/withdrawals", {method: "POST", body: JSON.stringify({amount: amt, method: m, wallet_number: num, holder_name: nm, idempotency_key: wdKey})});
+    wdKey = crypto.randomUUID(); e.target.reset(); await refresh();
+    err.className = "okmsg"; err.textContent = "আবেদন জমা হয়েছে। লেনদেন আইডি: " + (r.txn_id || "");
+    setTimeout(() => { err.className = "err"; }, 6000);
+  } catch (x) { err.className = "err"; err.textContent = x.message; }
+  finally { b.disabled = false; }
+};
+
+// ---- অ্যাডমিন ----
+function chips() {
+  const C = $("#chips"); C.replaceChildren();
+  [["all", "সব"], ["pending", STATUS.pending], ["approved", STATUS.approved], ["paid", STATUS.paid], ["rejected", STATUS.rejected]].forEach(([k, v]) => {
+    const b = el("button", null, v); b.setAttribute("aria-pressed", filter === k); b.onclick = () => { filter = k; loadAdmin(); }; C.append(b);
+  });
+}
+async function loadAdmin() {
+  chips(); const L = $("#adminList"); L.replaceChildren();
+  let rows = []; try { rows = (await api("/api/admin/withdrawals" + (filter === "all" ? "" : "?status=" + filter))).items || []; } catch (e) { L.append(el("div", "empty", e.message)); return; }
+  if (!rows.length) L.append(el("div", "empty", "কোনো আবেদন নেই।"));
+  rows.forEach(w => {
+    const r = el("div", "row"), l = el("div"), rt = el("div");
+    l.append(el("b", null, bn(w.amount) + " · " + (METHOD[w.method] || w.method)), el("div", "meta", "পাবলিশার: " + w.publisher_id + " · নম্বর: " + w.wallet_number + (w.holder_name ? " (" + w.holder_name + ")" : "")), el("div", "meta", w.txn_id + " · " + dt(w.created_at) + (w.reference ? " · রেফ: " + w.reference : "") + (w.admin_note ? " · নোট: " + w.admin_note : "")));
+    rt.style.cssText = "display:flex;flex-direction:column;gap:6px;align-items:flex-end"; rt.append(badge(w.status));
+    const act = (txt, cls, path, cfg) => { const b = el("button", "btn sm " + cls, txt); b.onclick = async () => { const x = await ask(cfg); if (!x) return; try { await api("/api/admin/withdrawals/" + encodeURIComponent(w.id) + "/" + path, {method: "POST", body: JSON.stringify(x)}); loadAdmin(); } catch (e) { alert(e.message); } }; rt.append(b); };
+    if (w.status === "pending") { act("অনুমোদন", "", "approve", {title: "অনুমোদন দেবেন?", body: "অনুমোদন মানে পেমেন্ট পাঠানো নয়। টাকা পাঠানোর পর আলাদাভাবে “পেমেন্ট সম্পন্ন” চিহ্নিত করুন।", extra: true}); act("বাতিল", "sec", "reject", {title: "আবেদন বাতিল করবেন?", body: "আটকে রাখা টাকা ব্যবহারকারীর ব্যালেন্সে ফেরত যাবে।", extra: true, danger: true}); }
+    if (w.status === "approved") { act("পেমেন্ট সম্পন্ন", "", "paid", {title: "পেমেন্ট সম্পন্ন চিহ্নিত করবেন?", body: "শুধু বিকাশ/নগদে সত্যিই টাকা পাঠানোর পরই এটি করুন।", extra: true, refRequired: true}); act("বাতিল", "sec", "reject", {title: "আবেদন বাতিল করবেন?", body: "আটকে রাখা টাকা ফেরত যাবে।", extra: true, danger: true}); }
+    r.append(l, rt); L.append(r);
+  });
+}
+
+// ---- লগইন ----
+$("#aSwitch").onclick = () => { reg = !reg; $("#authTitle").textContent = reg ? "নতুন অ্যাকাউন্ট / Register" : "লগইন / Login"; $("#aGo").textContent = reg ? "অ্যাকাউন্ট খুলুন" : "লগইন করুন"; $("#aSwitch").textContent = reg ? "আগের অ্যাকাউন্টে লগইন করুন" : "নতুন অ্যাকাউন্ট খুলুন"; };
+$("#aGo").onclick = async () => {
+  const id = $("#aId").value.trim(), pw = $("#aPw").value; $("#aErr").textContent = "";
+  if (!id || pw.length < 8) return $("#aErr").textContent = "মোবাইল/ইমেইল দিন এবং কমপক্ষে ৮ অক্ষরের পাসওয়ার্ড দিন।";
+  try { await api(reg ? "/api/auth/register" : "/api/auth/login", {method: "POST", body: JSON.stringify({identifier: id, password: pw})}); init(); } catch (e) { $("#aErr").textContent = e.message; }
+};
+$("#logoutBtn").onclick = async () => { try { await api("/api/auth/logout", {method: "POST"}); } catch (e) {} location.reload(); };
+
+async function init() {
+  $("#demoBanner").classList.toggle("hide", LIVE);
+  if (!LIVE) { $("#appView").classList.remove("hide"); renderWallet(); return; }
+  try { me = await api("/api/me"); } catch (e) { $("#authView").classList.remove("hide"); $("#appView").classList.add("hide"); return; }
+  $("#authView").classList.add("hide"); $("#appView").classList.remove("hide"); $("#logoutBtn").classList.remove("hide");
+  $("#adminTab").classList.toggle("hide", me.role !== "admin");
+  try { await refresh(); } catch (e) { alert(e.message); }
+}
+init();
+</script>
+</body>
+</html>
